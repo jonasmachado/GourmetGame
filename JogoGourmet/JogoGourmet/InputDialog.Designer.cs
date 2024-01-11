@@ -31,12 +31,13 @@
             lblMessage = new Label();
             inputBox = new TextBox();
             btOk = new Button();
+            lblAlert = new Label();
             SuspendLayout();
             // 
             // lblMessage
             // 
             lblMessage.AutoSize = true;
-            lblMessage.Location = new Point(42, 33);
+            lblMessage.Location = new Point(35, 9);
             lblMessage.Name = "lblMessage";
             lblMessage.Size = new Size(171, 20);
             lblMessage.TabIndex = 0;
@@ -45,30 +46,43 @@
             // inputBox
             // 
             inputBox.Font = new Font("Segoe UI", 12F);
-            inputBox.Location = new Point(42, 67);
+            inputBox.Location = new Point(35, 61);
+            inputBox.MaxLength = 30;
             inputBox.Name = "inputBox";
-            inputBox.Size = new Size(276, 34);
+            inputBox.Size = new Size(312, 34);
             inputBox.TabIndex = 1;
             // 
             // btOk
             // 
-            btOk.Location = new Point(129, 118);
+            btOk.Location = new Point(124, 121);
             btOk.Name = "btOk";
-            btOk.Size = new Size(94, 29);
+            btOk.Size = new Size(130, 29);
             btOk.TabIndex = 2;
             btOk.Text = "Ok";
             btOk.UseVisualStyleBackColor = true;
             btOk.Click += OkClick;
             // 
+            // lblAlert
+            // 
+            lblAlert.AutoSize = true;
+            lblAlert.ForeColor = Color.Red;
+            lblAlert.Location = new Point(80, 98);
+            lblAlert.Name = "lblAlert";
+            lblAlert.Size = new Size(222, 20);
+            lblAlert.TabIndex = 3;
+            lblAlert.Text = "Valor inválido, tente novamente.";
+            lblAlert.Visible = false;
+            // 
             // InputDialog
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(352, 191);
+            ClientSize = new Size(389, 191);
+            Controls.Add(lblAlert);
             Controls.Add(btOk);
             Controls.Add(inputBox);
             Controls.Add(lblMessage);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "InputDialog";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -81,5 +95,6 @@
         private Label lblMessage;
         private TextBox inputBox;
         private Button btOk;
+        private Label lblAlert;
     }
 }

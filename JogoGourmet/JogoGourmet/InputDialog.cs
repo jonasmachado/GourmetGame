@@ -13,6 +13,12 @@ namespace JogoGourmet
 
         private void OkClick(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(inputBox.Text))
+            {
+                lblAlert.Visible = true;
+                return;
+            }
+
             Close();
         }
     }

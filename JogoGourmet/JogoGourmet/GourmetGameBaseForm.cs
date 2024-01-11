@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using JogoGourmet.Domain;
+using JogoGourmet.Services;
 
 namespace JogoGourmet
 {
     public partial class GourmetGameBaseForm : Form
     {
-        private readonly Node _root;
+        private readonly GameLogicService _gameLogicService;
         public GourmetGameBaseForm()
         {
-            _root = new Node { Dish = "Massa" };
-            _root.YesAnswerNode = new Node { Dish = "Lasanha", Parent = _root };
-            _root.NoAnswerNode = new Node { Dish = "Bolo de Chocolate", Parent = _root };
+            var root = new Node { Dish = "Massa" };
+            root.PositiveBranch = new Node { Dish = "Lasanha", Parent = root };
+            root.NegativeBranch = new Node { Dish = "Bolo de Chocolate", Parent = root };
+
+            _gameLogicService = new GameLogicService(new UserInterfaceService(), root);
             InitializeComponent();
         }
 
         private void OkClick(object sender, EventArgs e)
         {
-            _root.Find();
+            _gameLogicService.Start();
         }
     }
 }
