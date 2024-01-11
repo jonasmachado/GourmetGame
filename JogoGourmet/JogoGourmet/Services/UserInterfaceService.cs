@@ -2,8 +2,13 @@
 
 namespace JogoGourmet.Services
 {
-    internal class UserInterfaceService : IUserInterfaceService
+    public class UserInterfaceService : IUserInterfaceService
     {
+        public void ShowWinMessage()
+        {
+            MessageBox.Show("Acertei de novo!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         public bool CorrectGuess(string dish)
         {
             return MessageBox.Show($"O prato que você pensou é {dish}?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question)

@@ -2,7 +2,7 @@
 
 namespace JogoGourmet.Domain
 {
-    internal class Node
+    public class Node
     {
         public required string Dish { get; set; }
 

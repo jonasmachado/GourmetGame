@@ -3,7 +3,7 @@ using JogoGourmet.Interfaces;
 
 namespace JogoGourmet.Services
 {
-    internal class GameLogicService : IGameLogicService
+    public class GameLogicService : IGameLogicService
     {
         private readonly IUserInterfaceService _userInterface;
         private readonly Node _root;
@@ -25,7 +25,7 @@ namespace JogoGourmet.Services
             {
                 if (node.PositiveBranch is null)
                 {
-                    MessageBox.Show("Acertei de novo!");
+                    _userInterface.ShowWinMessage();
                     return;
                 }
 

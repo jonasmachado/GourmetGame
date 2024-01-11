@@ -1,6 +1,6 @@
 ﻿namespace JogoGourmet.Interfaces
 {
-    internal interface IGameLogicService
+    public interface IGameLogicService
     {
         void Start();
     }
